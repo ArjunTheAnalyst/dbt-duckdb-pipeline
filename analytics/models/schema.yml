@@ -50,3 +50,19 @@ models:
         description: The geographic location of the posting.
       - name: postings
         description: Total number of postings in that location.
+
+  - name: monthly_summary
+    description: "Monthly percentage of job postings that are remote compared to total postings."
+    config:
+      persist_docs:
+        relation: true
+        columns: true
+    columns:
+      - name: month
+        description: "The month of the posting, derived from search_date."
+      - name: total_postings
+        description: "Total number of postings across all roles for that month."
+      - name: remote_postings
+        description: "Total number of postings that are flagged as remote for that month."
+      - name: remote_percentage
+        description: "The percentage of remote postings relative to total postings, rounded to one decimal place."
