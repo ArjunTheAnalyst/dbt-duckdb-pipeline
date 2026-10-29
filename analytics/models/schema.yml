@@ -10,6 +10,8 @@ models:
         description: "Unique identifier for the posting (note: re-scraped jobs may share an ID)."
       - name: job_title
         description: The title of the job as it appeared on the posting.
+        data_tests:
+          - not_null
       - name: company_name
         description: The name of the hiring company.
       - name: job_location
@@ -60,6 +62,9 @@ models:
     columns:
       - name: month
         description: "The month of the posting, derived from search_date."
+        data_tests:
+          - unique  
+          - not_null
       - name: total_postings
         description: "Total number of postings across all roles for that month."
       - name: remote_postings
